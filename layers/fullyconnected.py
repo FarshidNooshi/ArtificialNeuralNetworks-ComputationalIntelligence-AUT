@@ -71,10 +71,11 @@ class FC:
         W, b = None
         dW = None @ None.T / None
         db = np.sum(None, axis=1, keepdims=True) / None
-        dA_prev = None @ None.T
+        dA_prev = None.T @ None
         grads = [dW, db]
         # reshape dA_prev to the shape of A_prev
-        dA_prev = dA_prev.T.reshape(self.input_shape)
+        if None:    # check if A_prev is output of convolutional layer
+            dA_prev = dA_prev.T.reshape(self.input_shape)
         return dA_prev, grads
     
     def update_parameters(self, optimizer, grads):

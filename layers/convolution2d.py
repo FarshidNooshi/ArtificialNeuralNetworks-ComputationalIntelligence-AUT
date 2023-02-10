@@ -147,8 +147,8 @@ class Conv2D:
                         w_end = w_start + None
                         a_slice = a_prev_pad[h_start:h_end, w_start:w_end, :]
                         da_prev_pad += None # hint: use element-wise multiplication of dZ and W
-                        dW += None # hint: use element-wise multiplication of dZ and a_slice
-                        db += None # hint: use dZ
+                        dW[..., c] += None # hint: use element-wise multiplication of dZ and a_slice
+                        db[..., c] += None # hint: use dZ
             dA_prev[i, :, :, :] = None # hint: remove padding (trick: pad:-pad)
         grads = [dW, db]
         return dA_prev, grads

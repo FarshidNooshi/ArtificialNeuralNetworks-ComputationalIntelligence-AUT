@@ -1,6 +1,6 @@
 import numpy as np
 
-class MeanSquaredError(Loss):
+class MeanSquaredError:
     def __init__(self):
         pass
 
