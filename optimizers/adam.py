@@ -2,9 +2,10 @@ import numpy as np
 from .gradientdescent import GradientDescent
 
 # TODO: Implement Adam optimizer
-class Adam(GradientDescent):
+class Adam:
     def __init__(self, layers_list, learning_rate=0.001, beta1=0.9, beta2=0.999, epsilon=1e-8):
-        super().__init__(layers_list, learning_rate)
+        self.layers = layers_list
+        self.learning_rate = learning_rate
         self.beta1 = beta1
         self.beta2 = beta2
         self.epsilon = epsilon
@@ -27,4 +28,4 @@ class Adam(GradientDescent):
             self.V[None][None] /= (1 - np.power(self.beta1, epoch)) # TODO: correct V
             self.S[None][None] /= (1 - np.power(self.beta2, epoch)) # TODO: correct S
             params.append(None - None * None / (np.sqrt(None) + None))
-        layer.parameters = params
+        return params
