@@ -4,7 +4,7 @@ class BinaryCrossEntropy:
     def __init__(self) -> None:
         pass
 
-    def compute(self, y: np.ndarray, y_hat: np.ndarray) -> float:
+    def compute(self, y_hat: np.ndarray, y: np.ndarray) -> float:
         """
         Computes the binary cross entropy loss.
             args:
@@ -18,7 +18,7 @@ class BinaryCrossEntropy:
         cost = None
         return np.squeeze(cost)
 
-    def backward(self, y : np.ndarray, y_hat: np.ndarray) -> np.ndarray:
+    def backward(self, y_hat: np.ndarray, y: np.ndarray) -> np.ndarray:
         """
         Computes the derivative of the binary cross entropy loss.
             args:

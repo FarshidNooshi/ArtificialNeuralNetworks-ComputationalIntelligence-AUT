@@ -1,6 +1,6 @@
 import numpy as np
 
-class MaxPoll2D:
+class MaxPool2D:
     def __init__(self, kernel_size=(3, 3), stride=(1, 1), mode="max"):
         """
         Max pooling layer.

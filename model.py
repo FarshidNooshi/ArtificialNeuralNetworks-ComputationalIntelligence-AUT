@@ -1,5 +1,5 @@
 from layers.convolution2d import Conv2D
-from layers.maxpooling2d import MaxPoll2D
+from layers.maxpooling2d import MaxPool2D
 from layers.fullyconnected import FC
 
 from activations import Activation, get_activation
@@ -67,7 +67,7 @@ class Model:
             tmp.append(None)    # hint add a copy of Z to tmp
             A = None
             tmp.append(None)    # hint add a copy of A to tmp
-        return A, tmp
+        return tmp
     
     def backward(self, dAL, tmp, x):
         """
@@ -90,8 +90,8 @@ class Model:
             else:
                 Z, A = tmp[l - 1], x
             dZ = None
-            dA, grads = None
-            grads[self.layers_names[i - 1]] = None
+            dA, grad = None
+            grads[self.layers_names[l - 1]] = None
         return grads
 
     def update(self, grads):
@@ -118,6 +118,7 @@ class Model:
         tmp = None
         AL = tmp[None]
         loss = None
+        dAL = None
         grads = None
         self.update(None)
         return loss
