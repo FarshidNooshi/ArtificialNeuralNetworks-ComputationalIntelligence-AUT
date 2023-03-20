@@ -115,7 +115,7 @@ class MaxPool2D:
                             dA_prev[i, h_start:h_end, w_start:w_end, c] += np.multiply(None, None)
                         elif self.mode == "average":
                             dz = dZ[i, h, w, c]
-                            dA_prev = self.distribute_value(None, None)
+                            dA_prev[i, h_start:h_end, w_start:w_end, c] += self.distribute_value(None, None)
                         else:
                             raise ValueError("Invalid mode")
         # Don't change the return
